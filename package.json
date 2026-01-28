@@ -1,0 +1,38 @@
+{
+  "name": "suara-aspirasi-rakyat",
+  "version": "1.0.0",
+  "description": "Sistem Unggah Aspirasi Rakyat dengan Tema Anime",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000",
+    "build": "echo 'Build completed successfully'",
+    "lint": "eslint assets/js/*.js",
+    "format": "prettier --write **/*.html **/*.css **/*.js",
+    "deploy": "npm run build && gh-pages -d ."
+  },
+  "keywords": [
+    "pengaduan",
+    "masyarakat",
+    "anime",
+    "government",
+    "complaint",
+    "portal",
+    "responsive"
+  ],
+  "author": "SUARA Team",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0",
+    "gh-pages": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/suara.git"
+  },
+  "bugs": {
+    "url": "https://github.com/username/suara/issues"
+  },
+  "homepage": "https://username.github.io/suara"
+}

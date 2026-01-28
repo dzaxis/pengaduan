@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 SUARA - Sistem Unggah Aspirasi Rakyat</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header dengan tema anime -->
+    <header class="anime-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <span class="logo-text">🌸 SUARA</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#complaint">Buat Pengaduan</a></li>
+                    <li><a href="#track">Lacak Pengaduan</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="anime-text">Selamat Datang di</span><br>
+                <span class="gradient-text">Sistem Unggah Aspirasi Rakyat</span>
+            </h1>
+            <p class="hero-subtitle">Sampaikan aspirasi dan keluhan Anda dengan gaya anime yang menyenangkan!</p>
+            <div class="hero-buttons">
+                <a href="#complaint" class="btn-primary">
+                    <i class="fas fa-edit"></i> Buat Pengaduan
+                </a>
+                <a href="#track" class="btn-secondary">
+                    <i class="fas fa-search"></i> Lacak Status
+                </a>
+            </div>
+        </div>
+        <div class="hero-animation">
+            <div class="floating-elements">
+                <div class="sakura sakura-1">🌸</div>
+                <div class="sakura sakura-2">🌸</div>
+                <div class="sakura sakura-3">🌸</div>
+                <div class="star star-1">⭐</div>
+                <div class="star star-2">⭐</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">Tentang Portal Kami</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-icon">🎌</div>
+                    <h3>Mudah Digunakan</h3>
+                    <p>Interface yang user-friendly dengan tema anime yang menarik</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Cepat Responsif</h3>
+                    <p>Pengaduan Anda akan diproses dengan cepat dan efisien</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">🛡️</div>
+                    <h3>Aman & Terpercaya</h3>
+                    <p>Data pengaduan Anda aman dan terlindungi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Complaint Form Section -->
+    <section id="complaint" class="complaint-section">
+        <div class="container">
+            <h2 class="section-title">Buat Pengaduan Baru</h2>
+            <div class="form-container">
+                <form id="complaintForm" class="anime-form">
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Nomor Telepon</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="category">Kategori Pengaduan</label>
+                        <select id="category" name="category" required>
+                            <option value="">Pilih Kategori</option>
+                            <option value="infrastruktur">🏗️ Infrastruktur</option>
+                            <option value="lingkungan">🌳 Lingkungan</option>
+                            <option value="pelayanan">🏢 Pelayanan Publik</option>
+                            <option value="keamanan">👮 Keamanan</option>
+                            <option value="kesehatan">🏥 Kesehatan</option>
+                            <option value="pendidikan">📚 Pendidikan</option>
+                            <option value="lainnya">📋 Lainnya</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="title">Judul Pengaduan</label>
+                        <input type="text" id="title" name="title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">Deskripsi Pengaduan</label>
+                        <textarea id="description" name="description" rows="5" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="attachment">Lampiran (Opsional)</label>
+                        <input type="file" id="attachment" name="attachment" accept="image/*,.pdf">
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Kirim Pengaduan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Track Complaint Section -->
+    <section id="track" class="track-section">
+        <div class="container">
+            <h2 class="section-title">Lacak Pengaduan</h2>
+            <div class="track-container">
+                <div class="track-form">
+                    <input type="text" id="ticketNumber" placeholder="Masukkan Nomor Tiket">
+                    <button onclick="trackComplaint()" class="track-btn">
+                        <i class="fas fa-search"></i> Lacak
+                    </button>
+                </div>
+                <div id="trackResult" class="track-result" style="display: none;">
+                    <!-- Hasil pelacakan akan muncul di sini -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title">Statistik Pengaduan</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="1234">0</div>
+                    <div class="stat-label">Total Pengaduan</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="890">0</div>
+                    <div class="stat-label">Diproses</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="756">0</div>
+                    <div class="stat-label">Selesai</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="98">0</div>
+                    <div class="stat-label">Persentase Kepuasan</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@animedesk.id</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+62 812-3456-7890</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Jl. Sakura No. 123, Tokyo, Indonesia</span>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Nama" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Pesan Anda" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="anime-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">🌸 SUARA</span>
+                    <p>Sistem Unggah Aspirasi Rakyat dengan sentuhan anime</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Link Cepat</h4>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Tentang</a></li>
+                        <li><a href="#complaint">Buat Pengaduan</a></li>
+                        <li><a href="#track">Lacak Pengaduan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Ikuti Kami</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SUARA. Dibuat dengan 💜 dan 🌸</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal untuk notifikasi -->
+    <div id="notificationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalMessage"></div>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
