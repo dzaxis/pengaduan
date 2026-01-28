@@ -19,8 +19,10 @@
                 <ul class="nav-menu">
                     <li><a href="#home">Beranda</a></li>
                     <li><a href="#about">Tentang</a></li>
+                    <li><a href="#portal">Portal Kami</a></li>
                     <li><a href="#complaint">Buat Pengaduan</a></li>
                     <li><a href="#track">Lacak Pengaduan</a></li>
+                    <li><a href="#dashboard">Dashboard</a></li>
                     <li><a href="#contact">Kontak</a></li>
                 </ul>
                 <div class="hamburger">
@@ -63,7 +65,7 @@
     <!-- About Section -->
     <section id="about" class="about-section">
         <div class="container">
-            <h2 class="section-title">Tentang Portal Kami</h2>
+            <h2 class="section-title">Tentang SUARA</h2>
             <div class="about-grid">
                 <div class="about-card">
                     <div class="card-icon">🎌</div>
@@ -79,6 +81,119 @@
                     <div class="card-icon">🛡️</div>
                     <h3>Aman & Terpercaya</h3>
                     <p>Data pengaduan Anda aman dan terlindungi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portal Section -->
+    <section id="portal" class="portal-section">
+        <div class="container">
+            <h2 class="section-title">Portal Kami</h2>
+            <div class="portal-intro">
+                <p class="portal-description">SUARA menyediakan berbagai layanan untuk memudahkan masyarakat menyampaikan aspirasi dan keluhan. Temukan layanan yang Anda butuhkan di bawah ini:</p>
+            </div>
+            
+            <div class="portal-grid">
+                <div class="portal-card">
+                    <div class="portal-icon">📝</div>
+                    <h3>Buat Pengaduan Baru</h3>
+                    <p>Sampaikan aspirasi, keluhan, atau laporan Anda melalui form pengaduan yang lengkap dan mudah digunakan.</p>
+                    <ul class="portal-features">
+                        <li>✅ Form lengkap dengan validasi</li>
+                        <li>✅ Upload lampiran foto/dokumen</li>
+                        <li>✅ Kategori pengaduan beragam</li>
+                        <li>✅ Konfirmasi email otomatis</li>
+                    </ul>
+                    <a href="#complaint" class="portal-btn">Mulai Pengaduan</a>
+                </div>
+
+                <div class="portal-card">
+                    <div class="portal-icon">🔍</div>
+                    <h3>Lacak Pengaduan</h3>
+                    <p>Monitor status pengaduan Anda secara real-time menggunakan nomor tiket yang diberikan saat submit.</p>
+                    <ul class="portal-features">
+                        <li>✅ Tracking real-time 24/7</li>
+                        <li>✅ Detail status pengaduan</li>
+                        <li>✅ History perubahan status</li>
+                        <li>✅ Notifikasi update otomatis</li>
+                    </ul>
+                    <a href="#track" class="portal-btn">Lacak Sekarang</a>
+                </div>
+
+                <div class="portal-card">
+                    <div class="portal-icon">📊</div>
+                    <h3>Statistik & Dashboard</h3>
+                    <p>Lihat statistik lengkap pengaduan, trend, dan analisis data untuk transparansi pelayanan.</p>
+                    <ul class="portal-features">
+                        <li>✅ Statistik real-time</li>
+                        <li>✅ Grafik dan chart interaktif</li>
+                        <li>✅ Filter berdasarkan kategori</li>
+                        <li>✅ Export data ke PDF/Excel</li>
+                    </ul>
+                    <a href="#dashboard" class="portal-btn">Lihat Dashboard</a>
+                </div>
+
+                <div class="portal-card">
+                    <div class="portal-icon">📚</div>
+                    <h3>Pusat Bantuan</h3>
+                    <p>Dapatkan informasi lengkap tentang cara menggunakan portal, FAQ, dan panduan pengaduan.</p>
+                    <ul class="portal-features">
+                        <li>✅ Panduan lengkap</li>
+                        <li>✅ FAQ populer</li>
+                        <li>✅ Video tutorial</li>
+                        <li>✅ Live chat support</li>
+                    </ul>
+                    <a href="#help" class="portal-btn">Buka Bantuan</a>
+                </div>
+
+                <div class="portal-card">
+                    <div class="portal-icon">🏢</div>
+                    <h3>Layanan Instansi</h3>
+                    <p>Akses langsung ke berbagai instansi pemerintah dan layanan publik yang tersedia.</p>
+                    <ul class="portal-features">
+                        <li>✅ Direktori instansi</li>
+                        <li>✅ Kontak layanan</li>
+                        <li>✅ Jam operasional</li>
+                        <li>✅ Lokasi peta</li>
+                    </ul>
+                    <a href="#services" class="portal-btn">Jelajahi Layanan</a>
+                </div>
+
+                <div class="portal-card">
+                    <div class="portal-icon">🔔</div>
+                    <h3>Notifikasi & Update</h3>
+                    <p>Terima notifikasi terkait status pengaduan Anda melalui email, SMS, atau push notification.</p>
+                    <ul class="portal-features">
+                        <li>✅ Email notifications</li>
+                        <li>✅ SMS alerts</li>
+                        <li>✅ Push notifications</li>
+                        <li>✅ Weekly summary</li>
+                    </ul>
+                    <a href="#notifications" class="portal-btn">Kelola Notifikasi</a>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="portal-quick-stats">
+                <h3>Statistik Cepat</h3>
+                <div class="quick-stats-grid">
+                    <div class="quick-stat-item">
+                        <div class="quick-stat-number" id="quickTotal">0</div>
+                        <div class="quick-stat-label">Total Pengaduan</div>
+                    </div>
+                    <div class="quick-stat-item">
+                        <div class="quick-stat-number" id="quickToday">0</div>
+                        <div class="quick-stat-label">Hari Ini</div>
+                    </div>
+                    <div class="quick-stat-item">
+                        <div class="quick-stat-number" id="quickWeek">0</div>
+                        <div class="quick-stat-label">Minggu Ini</div>
+                    </div>
+                    <div class="quick-stat-item">
+                        <div class="quick-stat-number" id="quickMonth">0</div>
+                        <div class="quick-stat-label">Bulan Ini</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -138,6 +253,103 @@
                         <i class="fas fa-paper-plane"></i> Kirim Pengaduan
                     </button>
                 </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard-section">
+        <div class="container">
+            <h2 class="section-title">Dashboard Pengaduan</h2>
+            
+            <div class="dashboard-controls">
+                <div class="filter-group">
+                    <label>Filter Kategori:</label>
+                    <select id="categoryFilter">
+                        <option value="">Semua Kategori</option>
+                        <option value="infrastruktur">🏗️ Infrastruktur</option>
+                        <option value="lingkungan">🌳 Lingkungan</option>
+                        <option value="pelayanan">🏢 Pelayanan Publik</option>
+                        <option value="keamanan">👮 Keamanan</option>
+                        <option value="kesehatan">🏥 Kesehatan</option>
+                        <option value="pendidikan">📚 Pendidikan</option>
+                        <option value="lainnya">📋 Lainnya</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Filter Status:</label>
+                    <select id="statusFilter">
+                        <option value="">Semua Status</option>
+                        <option value="pending">⏳ Menunggu Proses</option>
+                        <option value="processing">🔄 Sedang Diproses</option>
+                        <option value="resolved">✅ Selesai</option>
+                        <option value="rejected">❌ Ditolak</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Urutkan:</label>
+                    <select id="sortBy">
+                        <option value="newest">Terbaru</option>
+                        <option value="oldest">Terlama</option>
+                        <option value="status">Status</option>
+                        <option value="category">Kategori</option>
+                    </select>
+                </div>
+                <button class="refresh-btn" onclick="loadDashboard()">
+                    <i class="fas fa-sync-alt"></i> Refresh
+                </button>
+            </div>
+
+            <div class="dashboard-content">
+                <div class="dashboard-table-container">
+                    <table class="dashboard-table">
+                        <thead>
+                            <tr>
+                                <th>No. Tiket</th>
+                                <th>Nama</th>
+                                <th>Kategori</th>
+                                <th>Judul</th>
+                                <th>Status</th>
+                                <th>Tanggal</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dashboardTableBody">
+                            <tr>
+                                <td colspan="7" class="loading-row">
+                                    <div class="loading-spinner"></div>
+                                    Memuat data...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="dashboard-pagination">
+                    <button class="pagination-btn" onclick="previousPage()" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <span class="page-info">Page <span id="currentPage">1</span> of <span id="totalPages">1</span></span>
+                    <button class="pagination-btn" onclick="nextPage()" id="nextBtn">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="dashboard-charts">
+                <div class="chart-container">
+                    <h3>Distribusi Kategori</h3>
+                    <canvas id="categoryChart" width="400" height="200"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Status Pengaduan</h3>
+                    <canvas id="statusChart" width="400" height="200"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Trend Pengaduan (7 Hari)</h3>
+                    <canvas id="trendChart" width="400" height="200"></canvas>
+                </div>
             </div>
         </div>
     </section>
@@ -224,6 +436,105 @@
         </div>
     </section>
 
+    <!-- Help Section -->
+    <section id="help" class="help-section">
+        <div class="container">
+            <h2 class="section-title">Pusat Bantuan</h2>
+            
+            <div class="help-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="showTab('faq')">FAQ</button>
+                    <button class="tab-btn" onclick="showTab('guide')">Panduan</button>
+                    <button class="tab-btn" onclick="showTab('contact')">Hubungi Kami</button>
+                </div>
+
+                <div class="tab-content">
+                    <div id="faq" class="tab-pane active">
+                        <div class="faq-list">
+                            <div class="faq-item">
+                                <h4>Bagaimana cara membuat pengaduan?</h4>
+                                <p>Klik tombol "Buat Pengaduan" di menu, isi form dengan lengkap, lalu klik submit. Anda akan menerima nomor tiket untuk tracking.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Berapa lama pengaduan diproses?</h4>
+                                <p>Waktu pemrosesan bervariasi tergantung kategori, umumnya 3-7 hari kerja untuk kasus standar.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Bagaimana cara melacak status pengaduan?</h4>
+                                <p>Gunakan nomor tiket yang diberikan saat submit, masukkan di form "Lacak Pengaduan" untuk melihat status terkini.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Apakah data saya aman?</h4>
+                                <p>Ya, semua data pengaduan dienkripsi dan dilindungi sesuai standar keamanan data pemerintah.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="guide" class="tab-pane">
+                        <div class="guide-content">
+                            <h3>Langkah demi Langkah</h3>
+                            <div class="guide-steps">
+                                <div class="step-item">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Daftar Akun</h4>
+                                        <p>Buat akun dengan email dan password yang valid.</p>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>Isi Form Pengaduan</h4>
+                                        <p>Lengkapi semua field yang diperlukan dengan informasi yang akurat.</p>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>Upload Lampiran</h4>
+                                        <p>Tambahkan foto atau dokumen pendukung jika diperlukan.</p>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h4>Submit & Track</h4>
+                                        <p>Kirim pengaduan dan simpan nomor tiket untuk tracking.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="contact" class="tab-pane">
+                        <div class="contact-help">
+                            <div class="contact-options">
+                                <div class="contact-option">
+                                    <i class="fas fa-phone"></i>
+                                    <h4>Telepon</h4>
+                                    <p>+62 812-3456-7890</p>
+                                    <small>Senin - Jumat, 08:00 - 17:00</small>
+                                </div>
+                                <div class="contact-option">
+                                    <i class="fas fa-envelope"></i>
+                                    <h4>Email</h4>
+                                    <p>support@suara.id</p>
+                                    <small>Response dalam 24 jam</small>
+                                </div>
+                                <div class="contact-option">
+                                    <i class="fas fa-comments"></i>
+                                    <h4>Live Chat</h4>
+                                    <p>Tersedia 24/7</p>
+                                    <button class="chat-btn">Mulai Chat</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="anime-footer">
         <div class="container">
@@ -237,8 +548,10 @@
                     <ul>
                         <li><a href="#home">Beranda</a></li>
                         <li><a href="#about">Tentang</a></li>
+                        <li><a href="#portal">Portal Kami</a></li>
                         <li><a href="#complaint">Buat Pengaduan</a></li>
                         <li><a href="#track">Lacak Pengaduan</a></li>
+                        <li><a href="#dashboard">Dashboard</a></li>
                     </ul>
                 </div>
                 <div class="footer-social">
