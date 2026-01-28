@@ -601,6 +601,283 @@ rainbowStyle.textContent = `
 `;
 document.head.appendChild(rainbowStyle);
 
+// Dashboard Functions
+let currentPage = 1;
+const itemsPerPage = 10;
+let allComplaints = [];
+
+function loadDashboard() {
+    const tableBody = document.getElementById('dashboardTableBody');
+    tableBody.innerHTML = '<tr><td colspan="7" class="loading-row"><div class="loading-spinner"></div>Memuat data...</td></tr>';
+
+    fetch('api/complaint.php?action=stats')
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Load all complaints for dashboard
+            fetchAllComplaints();
+        }
+    })
+    .catch(error => {
+        console.error('Error loading dashboard:', error);
+        // Fallback to localStorage
+        loadFromLocalStorage();
+    });
+}
+
+function fetchAllComplaints() {
+    // Simulate fetching all complaints
+    allComplaints = [
+        {
+            "id": "1",
+            "ticketNumber": "TKT-20240128-0001",
+            "name": "Andi Wijaya",
+            "category": "infrastruktur",
+            "title": "Jalan Berlubang di Kompleks",
+            "status": "processing",
+            "createdAt": "2024-01-28 08:30:00"
+        },
+        {
+            "id": "2",
+            "ticketNumber": "TKT-20240128-0002",
+            "name": "Siti Nurhaliza",
+            "category": "lingkungan",
+            "title": "Sampah Menumpuk di Taman",
+            "status": "resolved",
+            "createdAt": "2024-01-27 10:15:00"
+        },
+        {
+            "id": "3",
+            "ticketNumber": "TKT-20240128-0003",
+            "name": "Budi Santoso",
+            "category": "pelayanan",
+            "title": "Pelayanan RS Lambat",
+            "status": "pending",
+            "createdAt": "2024-01-28 13:45:00"
+        }
+    ];
+    
+    updateDashboardTable();
+    updateQuickStats();
+}
+
+function loadFromLocalStorage() {
+    const complaints = JSON.parse(localStorage.getItem('complaints') || '[]');
+    allComplaints = complaints;
+    updateDashboardTable();
+    updateQuickStats();
+}
+
+function updateDashboardTable() {
+    const tableBody = document.getElementById('dashboardTableBody');
+    const categoryFilter = document.getElementById('categoryFilter').value;
+    const statusFilter = document.getElementById('statusFilter').value;
+    const sortBy = document.getElementById('sortBy').value;
+
+    // Filter complaints
+    let filteredComplaints = allComplaints.filter(complaint => {
+        const categoryMatch = !categoryFilter || complaint.category === categoryFilter;
+        const statusMatch = !statusFilter || complaint.status === statusFilter;
+        return categoryMatch && statusMatch;
+    });
+
+    // Sort complaints
+    filteredComplaints.sort((a, b) => {
+        switch(sortBy) {
+            case 'newest':
+                return new Date(b.createdAt) - new Date(a.createdAt);
+            case 'oldest':
+                return new Date(a.createdAt) - new Date(b.createdAt);
+            case 'status':
+                return a.status.localeCompare(b.status);
+            case 'category':
+                return a.category.localeCompare(b.category);
+            default:
+                return 0;
+        }
+    });
+
+    // Pagination
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const pageComplaints = filteredComplaints.slice(startIndex, endIndex);
+
+    // Update table
+    tableBody.innerHTML = pageComplaints.map(complaint => `
+        <tr>
+            <td>${complaint.ticketNumber}</td>
+            <td>${complaint.name}</td>
+            <td>${getCategoryLabel(complaint.category)}</td>
+            <td>${complaint.title}</td>
+            <td><span class="status-badge status-${complaint.status}">${getStatusText(complaint.status)}</span></td>
+            <td>${new Date(complaint.createdAt).toLocaleDateString('id-ID')}</td>
+            <td>
+                <button class="action-btn" onclick="viewComplaint('${complaint.ticketNumber}')">
+                    <i class="fas fa-eye"></i>
+                </button>
+            </td>
+        </tr>
+    `).join('');
+
+    // Update pagination
+    updatePagination(filteredComplaints.length);
+}
+
+function updateQuickStats() {
+    const today = new Date();
+    const thisWeek = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+    const thisMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+
+    const todayCount = allComplaints.filter(c => {
+        const complaintDate = new Date(c.createdAt);
+        return complaintDate.toDateString() === today.toDateString();
+    }).length;
+
+    const weekCount = allComplaints.filter(c => {
+        const complaintDate = new Date(c.createdAt);
+        return complaintDate >= thisWeek;
+    }).length;
+
+    const monthCount = allComplaints.filter(c => {
+        const complaintDate = new Date(c.createdAt);
+        return complaintDate >= thisMonth;
+    }).length;
+
+    // Animate counters
+    animateCounter(0, allComplaints.length, document.getElementById('quickTotal'));
+    animateCounter(0, todayCount, document.getElementById('quickToday'));
+    animateCounter(0, weekCount, document.getElementById('quickWeek'));
+    animateCounter(0, monthCount, document.getElementById('quickMonth'));
+}
+
+function getCategoryLabel(category) {
+    const labels = {
+        'infrastruktur': '🏗️ Infrastruktur',
+        'lingkungan': '🌳 Lingkungan',
+        'pelayanan': '🏢 Pelayanan Publik',
+        'keamanan': '👮 Keamanan',
+        'kesehatan': '🏥 Kesehatan',
+        'pendidikan': '📚 Pendidikan',
+        'lainnya': '📋 Lainnya'
+    };
+    return labels[category] || category;
+}
+
+function updatePagination(totalItems) {
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+    document.getElementById('currentPage').textContent = currentPage;
+    document.getElementById('totalPages').textContent = totalPages;
+    
+    document.getElementById('prevBtn').disabled = currentPage === 1;
+    document.getElementById('nextBtn').disabled = currentPage === totalPages;
+}
+
+function previousPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        updateDashboardTable();
+    }
+}
+
+function nextPage() {
+    const totalPages = Math.ceil(allComplaints.length / itemsPerPage);
+    if (currentPage < totalPages) {
+        currentPage++;
+        updateDashboardTable();
+    }
+}
+
+function viewComplaint(ticketNumber) {
+    // Scroll to track section and populate ticket number
+    document.getElementById('ticketNumber').value = ticketNumber;
+    document.getElementById('track').scrollIntoView({ behavior: 'smooth' });
+    trackComplaint();
+}
+
+// Tab Functions
+function showTab(tabName) {
+    // Hide all tabs
+    document.querySelectorAll('.tab-pane').forEach(pane => {
+        pane.classList.remove('active');
+    });
+    
+    // Remove active class from all buttons
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    // Show selected tab
+    document.getElementById(tabName).classList.add('active');
+    
+    // Add active class to clicked button
+    event.target.classList.add('active');
+}
+
+// Filter event listeners
+document.addEventListener('DOMContentLoaded', function() {
+    // Add event listeners for filters
+    const categoryFilter = document.getElementById('categoryFilter');
+    const statusFilter = document.getElementById('statusFilter');
+    const sortBy = document.getElementById('sortBy');
+    
+    if (categoryFilter) {
+        categoryFilter.addEventListener('change', updateDashboardTable);
+    }
+    if (statusFilter) {
+        statusFilter.addEventListener('change', updateDashboardTable);
+    }
+    if (sortBy) {
+        sortBy.addEventListener('change', updateDashboardTable);
+    }
+});
+
+// Add status badge styles
+const statusStyles = document.createElement('style');
+statusStyles.textContent = `
+    .status-badge {
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        display: inline-block;
+    }
+    .status-pending {
+        background: #feca57;
+        color: #856404;
+    }
+    .status-processing {
+        background: #48dbfb;
+        color: #004085;
+    }
+    .status-resolved {
+        background: #1dd1a1;
+        color: #155724;
+    }
+    .status-rejected {
+        background: #ff6b6b;
+        color: #721c24;
+    }
+    .action-btn {
+        background: var(--gradient-anime);
+        color: white;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+    .action-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-medium);
+    }
+`;
+document.head.appendChild(statusStyles);
+
 // Export functions for global use
 window.trackComplaint = trackComplaint;
 window.showModal = showModal;
+window.loadDashboard = loadDashboard;
+window.previousPage = previousPage;
+window.nextPage = nextPage;
+window.viewComplaint = viewComplaint;
+window.showTab = showTab;
